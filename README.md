@@ -98,10 +98,62 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - INTRODUCING REACT DEVELOPER TOOLS:
     - React developer tools help understand the runtime state of your app.
+    - Dev tools: Officially maintained. Open source. They do not transmit.
+    - Interface:
+        - Options and settings: Customize.
+        - Components: Virtual DOM and runtime state.
+        - Profiling: Capture performance and timeline.
+    - When would you leverage the react-devtools package?
+        - React Native. Safari or other extensionless browsers. 
+        - Mobile browsers or embedded webview. INside a frame. Group policy requirements.
+        ```javascript
+            npm install -g react-devtools
+            yarn add global react-devtools
+            npx react-devtools
+            npm install --save-dev react-devtools
+        ```
+        ```htm
+            <html>
+                <head>
+                    <script src="http://localhost:8097"></script>
+        ```
+        ```javascript
+            react-devtools
+        ```
+        - Standalone version. Local machine only.
+        - Note: __REACT_DEVTOOLS_GLOBAL_HOOK__
 
 - INSPECT USING THE COMPONENTS TREE:
+    - Correlating HTML with Virtual DOM:
+        - Understand the Components tree view:
+            - Split pane: (R) Virtual DOM Tree. (L) Component details.
+                - Double-click the component to `pin` it to the pane.
+            - Rendering stack is *not* the trail of parent/child relationships.
+                - Breadcrumb represents the render tree.
+                - <> takes us to the component source code.
+                - Right-click and `Reveal in sidebar` Source map folders. Virtual.
+        - View component source code in the browser script debugger:
+        - Find associated component for a rendered HTML element:
+            - Filter within: e.g.: ^Styled
+            - You can only edit useState hook values and props.
+        - Find rendered HTML element for a component:
+        - Log component data to the console:
+    - Traversing the component treee quickly.
+    - Manipulating props and state at runtime.
+    - Demystifying hook indices and naming.
+        - useBugNet(). useState().
+        - React tracks hooks in the order that they are invoked.
+        - Hook index. Starting at one per each component.
+        - Only hooks that have internal state need to be tracked.
+        - "Always parse hook names from source."
+    - Making production debugging easier.
+        - Minified code?
+            ```javascript
+                AppHeader.displayName = "AppHeader";
+            ```
 
 - DEBUG USING THE COMPONENTS TREE:
+    - 
 
 - WORK WITH PROFILING SESSIONS:
 
