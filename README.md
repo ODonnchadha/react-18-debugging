@@ -153,7 +153,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
             ```
 
 - DEBUG USING THE COMPONENTS TREE:
-    - 
+    - Catch some bugs. Codespaces.
+    - Killer workflow:
+        - Context switching to VS Code faster.
+        - Set up debugging.
+            - Launch configuration. Continue. Step over. Step into. Step out.
+        - Setting breakpoints and watching properties.
+        - AI copilot debugging.
+    - Debug helpers: $r and useDebugValue. e.g.: $r.state or $r.props
+        - Can us $r to invoke callbacks, which you cannot do throughout DevTools.
+    - Inccorect prop data types. Undefined or null props.
+        - NOTE: A value of 0 is not "truthy."
+        - Coerce value to return a number instead of, perhaps, null:
+            - +inventoryCount (or inventoryCount ?? 0)
+    - Default props. Prevention with typechecking.
+        - Typechecking grants greater insight and assists in catching errors early.
+        - prop-types package. NOTE: Run-time errors. Unless linting.
+        ```javascript
+            Component.propTypes = {
+                name: propTypes.string.isRequired,
+                age: propTypes.number.isRequired,
+                ssn: isRequired.string
+            };
+        ```
+        - Or TypeScript. Adds build comlexitity. Requires learning and understanding.
 
 - WORK WITH PROFILING SESSIONS:
 

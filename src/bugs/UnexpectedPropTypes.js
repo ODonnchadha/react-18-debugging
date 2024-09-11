@@ -14,10 +14,10 @@ const Bug = () => {
   return (
     <Template bug={bug}>
       <UnseenUmbrellaMoth
-        rating={0}
+        rating={3.5}
         reviewCount={35}
-        inventoryCount={null}
-        popularity="trending"
+        inventoryCount={6}
+        popularity={POPULARITY.trending}
       />
     </Template>
   );
@@ -43,12 +43,13 @@ const UnseenUmbrellaMoth = ({ inventoryCount, rating, reviewCount, popularity })
     expect(findByTestId("inventory")).to.have.text("In Stock");
   });
 
+  const safeInventoryCount = inventoryCount ?? 0;
   return (
     <>
       <Heading level={3}>{bug.name}</Heading>
       <Popularity popularity={popularity} />
-      <Inventory inventoryCount={inventoryCount} />
-      {rating && <Rating rating={rating} reviewCount={reviewCount} />}
+      <Inventory inventoryCount={safeInventoryCount} />
+      {rating ? <Rating rating={rating} reviewCount={reviewCount} /> : null }
     </>
   );
 };
